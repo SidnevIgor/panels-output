@@ -4,6 +4,7 @@ export const PanelsContext = React.createContext();
 
 const PanelsStore = ({ children }) => {
   const [panels, setPanels] = useState([]);
+  const [panelsInCart, setPanelsInCart] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +22,9 @@ const PanelsStore = ({ children }) => {
     fetchData();
   }, []);
   return (
-    <PanelsContext.Provider value={[panels, setPanels]}>
+    <PanelsContext.Provider
+      value={[panels, setPanels, panelsInCart, setPanelsInCart]}
+    >
       {children}
     </PanelsContext.Provider>
   );

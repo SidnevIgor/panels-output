@@ -5,9 +5,18 @@ import Panel from "./panel";
 import { PanelsContext } from "../context/PanelsContext";
 
 const Panels = () => {
-  const [panels, setPanels] = useContext(PanelsContext);
+  const [panels, setPanels, panelsInCart, setPanelsInCart] =
+    useContext(PanelsContext);
 
-  console.log("Panels are: ", panels);
+  const addPanelToCart = (panelId) => {
+    console.log("Panel id is added to cart: ", panelId);
+    if (panelsInCart.findIndex((item) => item.id == panelId) !== -1) return;
+
+    let panel = panels.find((item) => item.id == panelId);
+    let updatedPanelsInCart = [...panelsInCart];
+    updatedPanelsInCart.push(panel);
+    setPanelsInCart(updatedPanelsInCart);
+  };
 
   return (
     <Container style={styles.panelsContainer}>
@@ -18,6 +27,7 @@ const Panels = () => {
             intro={panel.intro}
             id={panel.id}
             key={"panel" + i}
+            addPanelToCart={addPanelToCart}
           />
         ))}
     </Container>
