@@ -17,6 +17,7 @@ function App() {
           <Route path="/" element={<Panels />} />
           <Route path="panel/:panelId" element={<PanelDetails />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="*" element={<Panels />} />
         </Routes>
       </BrowserRouter>
     </PanelsStore>

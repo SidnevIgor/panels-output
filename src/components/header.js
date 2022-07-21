@@ -28,11 +28,11 @@ const Header = () => {
 const styles = {
   navbarContainer: {
     justifyContent: "space-between",
-    padding: "0.5rem",
+    padding: "1rem",
   },
   badge: {
     position: "absolute",
-    marginLeft: "-1.5%",
+    marginLeft: "-1%",
     marginTop: "-0.5%",
   },
 };

@@ -9,7 +9,6 @@ const Panels = () => {
     useContext(PanelsContext);
 
   const addPanelToCart = (panelId) => {
-    console.log("Panel id is added to cart: ", panelId);
     if (panelsInCart.findIndex((item) => item.id == panelId) !== -1) return;
 
     let panel = panels.find((item) => item.id == panelId);
